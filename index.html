@@ -52,28 +52,33 @@ h2{font-size:17px;margin:24px 0 10px;font-weight:700}
 .splash.off{opacity:0;visibility:hidden}
 .sp-logo{font-weight:800;font-size:clamp(44px,15vw,84px);letter-spacing:.04em;color:#fff;text-transform:lowercase}.sp-logo span{color:#8f7df0}
 @keyframes pop{from{opacity:0;transform:scale(.88)}to{opacity:1;transform:none}}
+.maint{display:none;text-align:center;padding:40px 20px;margin-top:40px}
+.mt .maint{display:block}
+.mt main section,.mt .dock{display:none!important}
+.maint svg{width:46px;height:46px;stroke:var(--muted);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.maint h2{margin:14px 0 6px;font-size:22px}.maint .sub{margin:0}
 /* Pastki shisha menyu */
 .dock{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:0 14px calc(6px + env(safe-area-inset-bottom,0px));display:flex;justify-content:center;pointer-events:none}
-.bar{position:relative;pointer-events:auto;width:100%;max-width:492px;height:66px;padding:5px;border-radius:33px;display:grid;grid-template-columns:repeat(3,1fr);
+.bar{position:relative;pointer-events:auto;width:100%;max-width:492px;height:72px;padding:7px;border-radius:36px;display:grid;grid-template-columns:repeat(3,1fr);
   
   
   
   touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;transform:translateZ(0)}
-.bar::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(180deg,rgba(32,32,36,.1),rgba(10,10,14,.18));border:1px solid rgba(255,255,255,.26);backdrop-filter:blur(4px) saturate(2);-webkit-backdrop-filter:blur(4px) saturate(2);box-shadow:0 10px 30px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.22),inset 0 -1px 0 rgba(255,255,255,.05)}
+.bar::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(100deg,rgba(255,255,255,.07),rgba(255,255,255,.02)),rgba(26,24,62,.55);border:1.5px solid rgba(190,180,255,.28);backdrop-filter:blur(16px) saturate(1.6);-webkit-backdrop-filter:blur(16px) saturate(1.6);box-shadow:0 10px 28px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.2),inset 0 -2px 8px rgba(0,0,0,.2)}
 .bar.drag{cursor:grabbing}
-.pill{position:absolute;top:5px;bottom:5px;left:5px;width:calc((100% - 10px)/3);will-change:transform;pointer-events:none;transition:transform .28s cubic-bezier(.25,.8,.3,1)}
-.lens{position:absolute;inset:0;border-radius:28px;background:rgba(120,120,128,.4);border:1px solid rgba(255,255,255,.1);box-shadow:inset 0 1px 0 rgba(255,255,255,.2);will-change:transform;transition:transform .3s cubic-bezier(.3,1.3,.5,1)}
-.lens::after{content:"";position:absolute;inset:0;border-radius:inherit;background:rgba(255,255,255,.14);box-shadow:inset 0 0 16px rgba(255,255,255,.18);opacity:0;transition:opacity .25s}
+.pill{position:absolute;top:7px;bottom:7px;left:7px;width:calc((100% - 14px)/3);will-change:transform;pointer-events:none;transition:transform .28s cubic-bezier(.25,.8,.3,1)}
+.lens{position:absolute;inset:0;border-radius:999px;background:linear-gradient(145deg,rgba(170,160,235,.34),rgba(120,110,190,.26));border:1px solid rgba(200,190,255,.28);box-shadow:inset 0 1px 0 rgba(255,255,255,.28),inset 0 -3px 8px rgba(0,0,0,.15),0 3px 10px rgba(0,0,0,.25);will-change:transform;transition:transform .3s cubic-bezier(.3,1.3,.5,1)}
+.lens::after{content:"";position:absolute;inset:0;border-radius:inherit;background:rgba(255,255,255,.07);box-shadow:inset 0 0 16px rgba(255,255,255,.1);opacity:0;transition:opacity .25s}
 .bar.drag .lens::after{opacity:1}
 .bar.drag .lens{transform:scale(1.3,1.36)}
 .bar.drag .pill{transition:none}
-.tab{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;background:none;border:0;color:rgba(235,235,245,.62);font:600 13px/1 "Manrope",system-ui,sans-serif;padding:0;cursor:inherit;border-radius:28px;will-change:transform;transition:color .15s,transform .3s cubic-bezier(.3,1.3,.5,1)}
-.tab svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.tab[aria-selected="true"]{color:#fff;font-weight:700}
+.tab{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;background:none;border:0;color:#8c8cc8;font:700 13px/1 "Manrope",system-ui,sans-serif;padding:0;cursor:inherit;border-radius:28px;will-change:transform;transition:color .15s,transform .3s cubic-bezier(.3,1.3,.5,1)}
+.tab svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.tab[aria-selected="true"]{color:#fff}.tab[aria-selected="true"] svg{stroke:#bfb0ff}
 .tab:focus-visible{outline:2px solid #fff;outline-offset:-4px}
 .tab.has::after{content:"";position:absolute;top:8px;left:calc(50% + 9px);width:9px;height:9px;border-radius:50%;background:#ff5d8f;box-shadow:0 0 0 2px rgba(20,18,30,.9)}
 .bar.drag .tab[aria-selected="true"]{transform:scale(1.24)}
-@media (max-width:380px){.tab{font-size:11.5px}.tab svg{width:24px;height:24px}.bar{height:62px}}
+@media (max-width:380px){.tab{font-size:11.5px}.tab svg{width:24px;height:24px}.bar{height:66px}}
 
 .thr{cursor:pointer;display:flex;justify-content:space-between;gap:12px;align-items:center}
 .thr b{display:block;font-size:15px;margin-bottom:3px;word-break:break-word}
@@ -134,6 +139,8 @@ h2{font-size:17px;margin:24px 0 10px;font-weight:700}
       <button class="lock" id="lockBtn" type="button" aria-label="Admin panelga kirish"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="3"/><path d="M8 11V8a4 4 0 018 0v3"/></svg></button>
     </div>
   </header>
+
+  <div class="card maint" id="maint"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg><h2 id="mt1"></h2><p class="sub" id="mt2"></p></div>
 
   <section id="p0">
     <h1 id="t0"></h1><p class="sub" id="s0"></p>
@@ -199,10 +206,11 @@ function def(){return{
  services:[{id:'s1',title:'Ariza topshirish',text:'Onlayn ariza va hujjatlar'},{id:'s2',title:'Toʻlovlar',text:'Kommunal va soliq toʻlovlari'},{id:'s3',title:'Aloqa markazi',text:'Operator bilan yozishish'},{id:'s4',title:'Eng yaqin boʻlim',text:'Manzil va ish vaqti'}],
  news:[{id:'n1',sana:'18-oktabr',title:'Murojaatlarga javob muddati qisqartirildi',text:'Endi koʻpchilik murojaatlar 3 ish kuni ichida koʻrib chiqiladi.'},{id:'n2',sana:'14-oktabr',title:'Ilovaga yangi xizmatlar qoʻshildi',text:'Toʻlovlar va hujjat topshirish boʻlimlari yangilandi.'},{id:'n3',sana:'9-oktabr',title:'Texnik ishlar haqida eslatma',text:'Yakshanba kuni tunda tizim qisqa muddat ishlamasligi mumkin.'}],
  profile:{ism:'',tel:''},topics:TOPICS.map(function(t,i){return{id:'t'+i,name:t}}),
- ai:{on:true,name:'Wer Ai',greeting:'Salom! Men Wer Ai man. Savolingizni yozing, tez javob beraman.',rules:'Sen WERUZB murojaatlar tizimining sunʼiy intellekt yordamchisi — Wer Ai san. Hamma savollarga tez, qisqa va aniq javob ber. Asosan oʻzbek tilida (lotin yozuvida) gapir; foydalanuvchi boshqa tilda yozsa, shu tilda javob ber. Murojaat yuborish, xizmatlar va xabarlar boʻlimlari haqida yordam ber. Bilmagan narsangni oʻylab topma.',kb:'Murojaat yuborish uchun pastdagi Murojaat boʻlimiga oʻting, mavzuni tanlang, matnni yozing va Yuborish tugmasini bosing. Admin javobi Xabarlarim boʻlimida koʻrinadi.',cmds:[{id:'c1',cmd:'Murojaat qanday yuboriladi?',text:'Pastdagi “Murojaat” boʻlimiga oʻting, mavzuni tanlang, muammoni yozing va “Yuborish” tugmasini bosing.'},{id:'c2',cmd:'Javobni qayerda koʻraman?',text:'Admin javobi “Xabarlarim” boʻlimida chiqadi. Yangi javob boʻlsa, menyuda nuqta koʻrinadi.'}]}}}
+ ai:{on:true,name:'Wer Ai',greeting:'Salom! Men Wer Ai man. Savolingizni yozing, tez javob beraman.',rules:'Sen WERUZB murojaatlar tizimining sunʼiy intellekt yordamchisi — Wer Ai san. Hamma savollarga tez, qisqa va aniq javob ber. Asosan oʻzbek tilida (lotin yozuvida) gapir; foydalanuvchi boshqa tilda yozsa, shu tilda javob ber. Murojaat yuborish, xizmatlar va xabarlar boʻlimlari haqida yordam ber. Bilmagan narsangni oʻylab topma.',kb:'Murojaat yuborish uchun pastdagi Murojaat boʻlimiga oʻting, mavzuni tanlang, matnni yozing va Yuborish tugmasini bosing. Admin javobi Xabarlarim boʻlimida koʻrinadi.',cmds:[{id:'c1',cmd:'Murojaat qanday yuboriladi?',text:'Pastdagi “Murojaat” boʻlimiga oʻting, mavzuni tanlang, muammoni yozing va “Yuborish” tugmasini bosing.'},{id:'c2',cmd:'Javobni qayerda koʻraman?',text:'Admin javobi “Xabarlarim” boʻlimida chiqadi. Yangi javob boʻlsa, menyuda nuqta koʻrinadi.'}]},
+ txt:{maintOn:false,maint:'Texnik xizmat boʻlmoqda..',maintSub:'Tez orada qaytamiz. Sabr qilganingiz uchun rahmat.',noai:'Wer Ai faqat claude.ai havolasi orqali ishlaydi.',unavail:'Wer Ai hozir mavjud emas.',denied:'Ruxsat berilmadi. Wer Ai ishlashi uchun ruxsat bering.',rate:'Juda koʻp soʻrov. Biroz kuting.',fail:'Xatolik yuz berdi. Qayta urinib koʻring.',off:'Wer Ai hozircha oʻchirilgan.'}}}
 var S;try{S=JSON.parse(localStorage.getItem(KEY)||localStorage.getItem('weruzb_v2'))}catch(e){S=null}
-if(!S||!S.site)S=def();
-function norm(){if(!S.topics)S.topics=def().topics;if(!S.ai)S.ai=def().ai;if(!S.ai.cmds)S.ai.cmds=[];S.appeals.forEach(function(a){a.msgs=a.msgs||[];a.uU=a.uU||0;a.aU=a.aU||0})}
+if(!S||!S.site||!S.appeals)S=def();
+function norm(){if(!S.topics)S.topics=def().topics;if(!S.ai)S.ai=def().ai;if(!S.ai.cmds)S.ai.cmds=[];var dt=def().txt;if(!S.txt)S.txt={};for(var k in dt)if(S.txt[k]===undefined)S.txt[k]=dt[k];S.appeals.forEach(function(a){a.msgs=a.msgs||[];a.uU=a.uU||0;a.aU=a.aU||0})}
 norm();
 if(S.site.t[2]==='Profilim'){S.site.t[2]='Xabarlarim';S.site.s[2]='Admin javoblari va yozishmalaringiz shu yerda.'}
 if(S.site.t[3]==='Yangiliklar'){S.site.t[3]='Wer Ai';S.site.s[3]='Savolingizga tez javob beradigan sunʼiy intellekt.'}
@@ -224,7 +232,7 @@ function R(){
   $('list').innerHTML=S.appeals.length?S.appeals.map(function(a){return '<div class="card item"><div><b>'+esc(a.matn)+'</b><small>'+esc(a.mavzu)+' · '+esc(a.sana)+'</small></div><span class="tag '+esc(a.holat)+'">'+esc(ST[a.holat]||a.holat)+'</span></div>'}).join(''):'<div class="empty">Hozircha murojaat yoʻq.</div>';
   
   AIR();
-  var ms=$('mavzu');ms.innerHTML=opts(tOpts(),ms.value);
+  var ms=$('mavzu');ms.innerHTML=opts(tOpts(),ms.value);document.body.classList.toggle('mt',!!S.txt.maintOn);$('mt1').textContent=S.txt.maint;$('mt2').textContent=S.txt.maintSub;
   M();
 }
 
@@ -250,15 +258,15 @@ $('msgs').addEventListener('keydown',function(e){if(e.key==='Enter'&&e.target.da
 
 /* ---- Menyu: silliq sudrash ---- */
 var bar=$('bar'),pill=$('pill'),tabs=[].slice.call(bar.querySelectorAll('.tab')),pages=[0,2,3].map(function(i){return $('p'+i)});
-var cur=0,shown=0,drag=false,L=0,W=0,tx=0,raf=0;
-function geo(){var r=bar.getBoundingClientRect();L=r.left+5;W=(r.width-10)/3}
+var cur=0,shown=0,drag=false,down=false,sx=0,L=0,W=0,tx=0,raf=0;
+function geo(){var r=bar.getBoundingClientRect();L=r.left+7;W=(r.width-14)/3}
 function paint(){raf=0;pill.style.transform='translate3d('+tx+'px,0,0)'}
 function mark(i){if(i===cur)return;cur=i;for(var k=0;k<3;k++)tabs[k].setAttribute('aria-selected',k===i?'true':'false')}
 function go(i){if(i===shown)return;shown=i;for(var k=0;k<3;k++)pages[k].hidden=k!==i;window.scrollTo(0,0)}
-function mv(e){if(!drag)return;tx=Math.max(0,Math.min(2*W,e.clientX-L-W/2));if(!raf)raf=requestAnimationFrame(paint);mark(Math.max(0,Math.min(2,Math.floor((e.clientX-L)/W))))}
-bar.addEventListener('pointerdown',function(e){geo();drag=true;bar.classList.add('drag');try{bar.setPointerCapture(e.pointerId)}catch(_){}mv(e)});
+function mv(e){if(!down)return;if(!drag){if(Math.abs(e.clientX-sx)<5)return;drag=true;bar.classList.add('drag')}tx=Math.max(0,Math.min(2*W,e.clientX-L-W/2));if(!raf)raf=requestAnimationFrame(paint);mark(Math.max(0,Math.min(2,Math.floor((e.clientX-L)/W))))}
+bar.addEventListener('pointerdown',function(e){geo();down=true;drag=false;sx=e.clientX;try{bar.setPointerCapture(e.pointerId)}catch(_){}var i=Math.max(0,Math.min(2,Math.floor((e.clientX-L)/W)));mark(i);tx=i*W;paint()});
 bar.addEventListener('pointermove',mv);
-function end(){if(!drag)return;drag=false;bar.classList.remove('drag');geo();tx=cur*W;paint();go(cur)}
+function end(){if(!down)return;down=false;drag=false;bar.classList.remove('drag');geo();tx=cur*W;paint();go(cur)}
 bar.addEventListener('pointerup',end);bar.addEventListener('pointercancel',end);
 tabs.forEach(function(t,k){t.addEventListener('click',function(e){if(e.detail===0){mark(k);geo();tx=k*W;paint();go(k)}})});
 bar.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){var k=Math.max(0,Math.min(2,cur+(e.key==='ArrowRight'?1:-1)));mark(k);geo();tx=k*W;paint();go(k);tabs[k].focus()}});
@@ -269,7 +277,7 @@ geo();tx=0;paint();R();
 /* ---- Wer Ai ---- */
 var aiMsgs=[],aiBusy=false;
 function scrollEnd(){window.scrollTo(0,document.body.scrollHeight)}
-function drawChat(){var ai=S.ai;var arr=[{from:'a',text:ai.on?ai.greeting:'Wer Ai hozircha oʻchirilgan.'}].concat(aiMsgs||[]);$('aichat').innerHTML=arr.map(function(m){return '<div class="bub '+(m.from==='u'?'u':'a')+'">'+esc(m.text)+'</div>'}).join('')}
+function drawChat(){var ai=S.ai;var arr=[{from:'a',text:ai.on?ai.greeting:S.txt.off}].concat(aiMsgs||[]);$('aichat').innerHTML=arr.map(function(m){return '<div class="bub '+(m.from==='u'?'u':'a')+'">'+esc(m.text)+'</div>'}).join('')}
 function AIR(){
   var ai=S.ai;
   $('aitxt').disabled=!ai.on;$('aisend').disabled=!ai.on||aiBusy;
@@ -283,13 +291,13 @@ function ask(q,fixed){
   if(fixed!==undefined){bot.text=fixed;aiMsgs.push(bot);drawChat();scrollEnd();return}
   var hist=aiMsgs.slice(0,-1).slice(-8).map(function(m){return (m.from==='u'?'Foydalanuvchi: ':'Wer Ai: ')+m.text}).join('\n');
   aiMsgs.push(bot);drawChat();scrollEnd();
-  if(!(window.claude&&window.claude.use)){bot.text='Wer Ai faqat claude.ai havolasi orqali ishlaydi.';drawChat();return}
+  if(!(window.claude&&window.claude.use)){bot.text=S.txt.noai;drawChat();return}
   aiBusy=true;$('aisend').disabled=true;
   var prompt=ai.rules+'\n\nSayt mavzulari: '+S.topics.map(function(t){return t.name}).join(', ')+'\n\nQoʻshimcha maʼlumotlar:\n'+ai.kb+'\n\nTayyor javoblar (savol shunga oʻxshasa, shu mazmunda javob ber):\n'+ai.cmds.map(function(x){return x.cmd+' → '+x.text}).join('\n')+(hist?'\n\nOldingi suhbat:\n'+hist:'')+'\n\nFoydalanuvchining yangi savoli: '+q+'\n\nFaqat javobning oʻzini yoz.';
-  window.claude.use('sample').then(function(sm){
-    if(!sm){bot.text='Wer Ai hozir mavjud emas.';return}
+  Promise.resolve().then(function(){return window.claude.use('sample')}).then(function(sm){
+    if(!sm){bot.text=S.txt.unavail;return}
     return sm(prompt,{modelTier:'quick',cache:false,onText:function(r){bot.text=r.text;var l=$('aichat').lastChild;if(l)l.textContent=r.text}}).then(function(r){bot.text=(r&&r.text)||bot.text})
-  }).catch(function(e){bot.text=e&&e.code==='not_granted'?'Ruxsat berilmadi. Wer Ai ishlashi uchun ruxsat bering.':e&&e.code==='rate_limited'?'Juda koʻp soʻrov. Biroz kuting.':'Xatolik yuz berdi. Qayta urinib koʻring.'}).then(function(){aiBusy=false;AIR();scrollEnd()});
+  }).catch(function(e){bot.text=e&&e.code==='not_granted'?S.txt.denied:e&&e.code==='rate_limited'?S.txt.rate:S.txt.fail}).then(function(){aiBusy=false;AIR();scrollEnd()});
 }
 $('aisend').onclick=function(){var x=$('aitxt'),v=x.value;x.value='';ask(v)};
 $('aitxt').addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();$('aisend').click()}});
@@ -307,7 +315,7 @@ $('enter').onclick=tryCode;code.addEventListener('keydown',function(e){if(e.key=
 var adm=$('adm'),abody=$('abody'),tab='appeals';
 function openAdmin(){tab='appeals';A();adm.classList.add('on');adm.scrollTop=0}
 $('aexit').onclick=function(){adm.classList.remove('on')};
-var TABS=[['appeals','Murojaatlar'],['topics','Mavzular'],['ai','Wer Ai'],['site','Sozlamalar']];
+var TABS=[['appeals','Murojaatlar'],['topics','Mavzular'],['ai','Wer Ai'],['sys','Tizim xabarlari'],['site','Sozlamalar']];
 function A(){
   var h='<div class="seg">'+TABS.map(function(t){return '<button type="button" data-tab="'+t[0]+'" class="'+(t[0]===tab?'on':'')+'">'+t[1]+'</button>'}).join('')+'</div>';
   if(tab==='appeals'){
@@ -319,6 +327,9 @@ function A(){
   }else if(tab==='ai'){
     var ai=S.ai;
     h+='<div class="card"><label>Wer Ai holati</label><select data-c="ai" data-f="on"><option value="1"'+(ai.on?' selected':'')+'>Yoqilgan</option><option value="0"'+(ai.on?'':' selected')+'>Oʻchirilgan</option></select><label>Ismi</label><input data-c="ai" data-f="name" value="'+esc(ai.name)+'"><label>Salomlashuv matni</label><textarea data-c="ai" data-f="greeting">'+esc(ai.greeting)+'</textarea><label>Asosiy buyruqlar (Wer Ai qanday gaplashishi va nimalarni aytishi)</label><textarea data-c="ai" data-f="rules" style="min-height:150px">'+esc(ai.rules)+'</textarea><label>Qoʻshimcha maʼlumotlar (Wer Ai bilishi kerak boʻlgan narsalar)</label><textarea data-c="ai" data-f="kb" style="min-height:130px">'+esc(ai.kb)+'</textarea></div><p class="stat">Tezkor buyruqlar: foydalanuvchi tugmani bossa, Wer Ai shu javobni darhol aytadi.</p><button class="mini add" data-act="add" type="button">+ Yangi buyruq</button>'+ai.cmds.map(function(n){var d='data-c="cmds" data-id="'+n.id+'"';return '<div class="card"><label>Buyruq (tugma yozuvi)</label><input '+d+' data-f="cmd" value="'+esc(n.cmd)+'"><label>Javob</label><textarea '+d+' data-f="text">'+esc(n.text)+'</textarea><button class="mini red" type="button" data-act="del" '+d+'>Oʻchirish</button></div>'}).join('');
+  }else if(tab==='sys'){
+    var T=S.txt;
+    h+='<div class="card"><label>Texnik xizmat rejimi: '+(T.maintOn?'YOQILGAN':'oʻchirilgan')+'</label><button class="mini'+(T.maintOn?' red':'')+'" type="button" data-act="mt" style="width:100%;margin-bottom:12px">'+(T.maintOn?'Texnik xizmatni oʻchirish':'Texnik xizmatni yoqish')+'</button><label>Sarlavha</label><input data-c="txt" data-f="maint" value="'+esc(T.maint)+'"><label>Izoh</label><input data-c="txt" data-f="maintSub" value="'+esc(T.maintSub)+'"></div><div class="card"><p class="stat">Wer Ai xabarlari (foydalanuvchiga chat ichida koʻrinadi)</p>'+[['noai','Havola orqali ishlamasa'],['unavail','Wer Ai mavjud boʻlmasa'],['denied','Ruxsat berilmasa'],['rate','Koʻp soʻrov boʻlsa'],['fail','Xatolik boʻlsa'],['off','Wer Ai oʻchirilgan boʻlsa']].map(function(x){return '<label>'+x[1]+'</label><input data-c="txt" data-f="'+x[0]+'" value="'+esc(T[x[0]])+'">'}).join('')+'</div>';
   }else if(tab==='news'){
     h+='<button class="mini add" data-act="add" type="button">+ Yangi yangilik</button>'+S.news.map(function(n){var d='data-c="news" data-id="'+n.id+'"';return '<div class="card"><label>Sana</label><input '+d+' data-f="sana" value="'+esc(n.sana)+'"><label>Sarlavha</label><input '+d+' data-f="title" value="'+esc(n.title)+'"><label>Matn</label><textarea '+d+' data-f="text">'+esc(n.text)+'</textarea><button class="mini red" type="button" data-act="del" '+d+'>Oʻchirish</button></div>'}).join('');
   }else if(tab==='services'){
@@ -330,10 +341,11 @@ function A(){
   }
   abody.innerHTML=h;
 }
+var rt;function Rd(){clearTimeout(rt);rt=setTimeout(R,250)}
 function find(c,id){return S[c].filter(function(x){return x.id===id})[0]}
-function setv(t){var c=t.dataset.c,f=t.dataset.f,n=t.dataset.n,o=c==='site'?S.site:c==='root'?S:c==='ai'?S.ai:c==='cmds'?S.ai.cmds.filter(function(x){return x.id===t.dataset.id})[0]:find(c,t.dataset.id);if(!o)return;
+function setv(t){var c=t.dataset.c,f=t.dataset.f,n=t.dataset.n,o=c==='site'?S.site:c==='root'?S:c==='ai'?S.ai:c==='txt'?S.txt:c==='cmds'?S.ai.cmds.filter(function(x){return x.id===t.dataset.id})[0]:find(c,t.dataset.id);if(!o)return;
   if(c==='topics'&&f==='name'){var ov=o.name;S.appeals.forEach(function(a){if(a.mavzu===ov)a.mavzu=t.value})}
-  if(c==='ai'&&f==='on'){o.on=t.value==='1'}else if(n!==undefined)o[f][+n]=t.value;else o[f]=t.value;save();R()}
+  if(c==='ai'&&f==='on'){o.on=t.value==='1'}else if(n!==undefined)o[f][+n]=t.value;else o[f]=t.value;save();Rd()}
 abody.addEventListener('input',function(e){if(e.target.dataset&&e.target.dataset.f)setv(e.target)});
 abody.addEventListener('change',function(e){if(e.target.dataset&&e.target.dataset.f)setv(e.target)});
 abody.addEventListener('click',function(e){
@@ -347,6 +359,7 @@ abody.addEventListener('click',function(e){
   }else if(a==='cancel'){var x=find('appeals',t.dataset.id);if(x){x.holat='cancel';say('Murojaat bekor qilindi')}}
   else if(a==='del'){if(t.dataset.c==='cmds')S.ai.cmds=S.ai.cmds.filter(function(x){return x.id!==t.dataset.id});else S[t.dataset.c]=S[t.dataset.c].filter(function(x){return x.id!==t.dataset.id});say('Oʻchirildi')}
   else if(a==='reply'){var q=find('appeals',t.dataset.id),r=$('rp-'+t.dataset.id),rv=r?r.value.trim():'';if(!q||!rv){say('Javob matnini yozing');return}q.msgs=q.msgs||[];q.msgs.push({from:'admin',text:rv,t:today()});q.uU=(q.uU||0)+1;q.aU=0;if(q.holat==='new')q.holat='wait';say('Javob yuborildi')}
+  else if(a==='mt'){S.txt.maintOn=!S.txt.maintOn;say(S.txt.maintOn?'Texnik xizmat yoqildi':'Texnik xizmat oʻchirildi')}
   else if(a==='forget'){try{localStorage.removeItem('weruzb_admin')}catch(e){}adm.classList.remove('on');say('Admin paneldan chiqildi');return}
   else if(a==='reset'){S=def();norm();say('Boshlangʻich holatga qaytarildi')}
   save();R();A();
